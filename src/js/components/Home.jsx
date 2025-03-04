@@ -1,28 +1,55 @@
 import React from "react";
+import Navbar from "./Navbar";
+import Jumbotron from "./Headline";
+import Card from "./Card";
+import Footer from "./Footer";
+// array break
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const cardArray = [
+  {
+    title: "cardOne",
+    src: "https://placehold.co/400",
+    buttonTitle: "Request1",
+    paragraph: "Basketball Classes",
+  },
+  {
+    title: "cardTwo",
+    src: "https://placehold.co/400",
+    buttonTitle: "Request2",
+    paragraph: "Tennis Classes",
+  },
+  {
+    title: "cardThree",
+    src: "https://placehold.co/400",
+    buttonTitle: "Request3",
+    paragraph: "Soccer Classes",
+  },
+  {
+    title: "cardFour",
+    src: "https://placehold.co/400",
+    buttonTitle: "Request4",
+    paragraph: "Baseball Classes",
+  },
+];
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
-
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  return (
+    <div class="container">
+      <Navbar />
+      <Jumbotron />
+      <div className="d-flex">
+        {cardArray.map((index) => {
+          return (
+            <div className="m-2">
+              <Card cardFour={index}/>
+            </div>
+          );
+        })}
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
